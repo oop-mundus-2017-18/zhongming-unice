@@ -1,10 +1,11 @@
-# Projet Flu Epidemic 
+# Projet Flu Epidemic #
 
-####author：ZHONG Ming
+####author：ZHONG Ming ####
 
 
-##Output
-###States :
+##Output##
+
+###States###
 
 - **Healthy**
 - **Infected**
@@ -13,7 +14,7 @@
 - **Recovering**
 - **Dead**
 
-###Beings :
+###Beings###
 
 - **Person**
 - **Chicken**
@@ -21,6 +22,6 @@
 - **pig**
 
 
-##Variants
+##Variants##
 
 Frequent hand-washing can affect the infection rate

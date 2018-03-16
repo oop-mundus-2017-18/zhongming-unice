@@ -6,5 +6,5 @@ package beings.animals;
 import beings.Being;
 
 public abstract class Animal extends Being {
-
+    protected double mortalityRate;
 }

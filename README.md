@@ -2,18 +2,17 @@
 
 author：ZHONG Ming
 
-
+version 1.0 publiée Jeudi 29 mars, 2018 法国普罗旺斯-阿尔卑斯-蓝色海岸瓦洛里时间:23:34:34
 
 ### States
 
 1. **Healthy**
 2. **Infected**
-3. **Sick**
 4. **Contagious**
 5. **Recovering**
 6. **Dead**
 
-### Bings
+### Beings
 
 - :baby:**Person**
 - :chicken:**Chicken**

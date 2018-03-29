@@ -1,5 +1,7 @@
 package simulation;
 
+import java.util.ArrayList;
+
 /**
  * @author ZHONG Ming
  */
@@ -52,7 +54,17 @@ public class Field {
     }
 
     public Being[] getNeighbour(int row, int col) {
-        return null;
+        ArrayList<Being> list = new ArrayList<Being>();
+        for ( int i=-1; i<2; i++ ) {
+            for ( int j=-1; j<2; j++ ) {
+                int r = row+i;
+                int c = col+j;
+                if ( r >-1 && r<height && c>-1 && c<width && !(r== row && c == col) ) {
+                    list.add(field[r][c]);
+                }
+            }
+        }
+        return list.toArray(new Being[list.size()]);
     }
 
     public void clear() {

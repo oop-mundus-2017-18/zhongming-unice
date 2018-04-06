@@ -16,18 +16,19 @@ public class Main {
         Field field = new Field(30, 30);
         for (int row = 0; row < field.getHeight(); row++) {
             for (int col = 0; col < field.getWidth(); col++) {
-                if (Math.random() < 0.4)
+                double i = Math.random();
+                if (i < 0.4)
                     field.place(row, col, new Person());
-                if (Math.random() < 0.2)
+                else if (i < 0.6)
                     field.place(row, col, new Chicken());
-                if (Math.random() < 0.2)
+                else if (i < 0.8)
                     field.place(row, col, new Duck());
-                if (field.get(row, col) == null)
+                else
                     field.place(row, col, new Pig());
             }
         }
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 30; i++) {
             System.out.println("Day " + i + " : ");
             System.out.println("------------------------------------------------");
             for (int row = 0; row < field.getHeight(); row++) {
@@ -42,7 +43,7 @@ public class Main {
                         }
                         if (being.states.contains(Healthy) && !being.states.contains(Recovering)) {
                             for (Being b : neighbour) {
-                                if (b.virus != null && b.virus.canInfect(b, being)) {
+                                if (b.states.contains(Contagious) && b.virus != null && b.virus.canInfect(b, being)) {
                                     if (b.virus.getInfectRate() > Math.random()) {
                                         being.states.remove(Healthy);
                                         being.states.add(Infected);
@@ -51,7 +52,7 @@ public class Main {
                                 }
                             }
                         }
-                        if (being.getInfectedDay() > 6 && being.kind == "Person") {
+                        if (being.getInfectedDay() > 6 && being.getClass() == Person.class) {
                             being.zeroInfectedDay();
                             being.states.remove(Infected);
                             being.states.remove(Contagious);
@@ -62,8 +63,15 @@ public class Main {
                                 being.states.add(Dead);
                             }
                         }
+                        if (being.getClass() == Animal.class) {
+                            Animal item = (Animal) being;
+                            if (item.getMortalityRate() > Math.random())
+                                being.states.clear();
+                            being.states.add(Dead);
+
+                        }
                         System.out.print("[" + row + "][" + col + "]:");
-                        System.out.print(being.kind + " : ");
+                        System.out.print(being.toString() + " : ");
                         System.out.print(being.condition());
                         System.out.println();
                     }

@@ -7,4 +7,7 @@ import beings.Being;
 
 public abstract class Animal extends Being {
     protected double mortalityRate;
+    public double getMortalityRate() {
+        return mortalityRate;
+    }
 }

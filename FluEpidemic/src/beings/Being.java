@@ -12,7 +12,6 @@ public abstract class Being {
     public Virus virus = new Virus();
     protected int incubationTime;
     protected int infectedDay = 0;
-    public String kind;
 
     public int getInfectedDay() {
         return infectedDay;

@@ -10,6 +10,7 @@ import virus.*;
  */
 public class Chicken extends Animal {
     public Chicken() {
+        this.mortalityRate = 0.01;
         if(Math.random() < 0.7)
         this.states.add(Healthy);
         else {
@@ -17,6 +18,9 @@ public class Chicken extends Animal {
             this.virus = new H5N1();
         }
         this.incubationTime = 5;
-        this.kind = "Chicken";
+    }
+
+    public String toString() {
+        return "Chicken";
     }
 }

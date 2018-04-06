@@ -9,13 +9,17 @@ import virus.*;
  */
 public class Pig extends Animal {
     public Pig() {
-        if(Math.random() < 0.5)
-        this.states.add(Healthy);
+        this.mortalityRate = 0.08;
+        if (Math.random() < 0.5)
+            this.states.add(Healthy);
         else {
             this.states.add(Infected);
             this.virus = new H1N1();
         }
         this.incubationTime = 4;
-        this.kind = "Pig";
+    }
+
+    public String toString() {
+        return "Pig";
     }
 }

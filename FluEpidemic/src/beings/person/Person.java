@@ -13,7 +13,8 @@ public class Person extends Being {
     public Person(){
         this.states.add(Healthy);
         this.incubationTime = 3;
-        this.kind = "Person";
     }
-
+    public String toString() {
+        return "Person";
+    }
 }

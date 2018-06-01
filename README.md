@@ -23,3 +23,5 @@ version 1.0 publiée Jeudi 29 mars, 2018 法国普罗旺斯-阿尔卑斯-蓝色�
 ### Variants
 
 Frequent hand-washing can affect the infection rate
+
+update : Vendredi 1 Juin 2018 12:09

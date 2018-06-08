@@ -2,15 +2,13 @@
 
 author：ZHONG Ming
 
-version 1.0 publiée Jeudi 29 mars, 2018 法国普罗旺斯-阿尔卑斯-蓝色海岸瓦洛里时间:23:34:34
+version 1.1 publiée Vendredi 08 juin, 2018
 
 ### States
 
 1. **Healthy**
-2. **Infected**
-4. **Contagious**
-5. **Recovering**
-6. **Dead**
+2. **Infected** by h5n1 or h1n1
+3. **Dead**
 
 ### Beings
 
@@ -19,9 +17,6 @@ version 1.0 publiée Jeudi 29 mars, 2018 法国普罗旺斯-阿尔卑斯-蓝色�
 - :hatched_chick:**duck**
 - :pig2:**pig**
 
+update : add grafx 
 
-### Variants
 
-Frequent hand-washing can affect the infection rate
-
-update : Vendredi 1 Juin 2018 12:09

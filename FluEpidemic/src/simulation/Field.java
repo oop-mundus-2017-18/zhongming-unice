@@ -1,5 +1,9 @@
 package simulation;
 
+/**
+ * @author ZHONG Ming
+ * @author Xu Yijie
+ */
 import java.util.ArrayList;
 
 /**

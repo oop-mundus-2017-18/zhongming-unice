@@ -6,13 +6,14 @@ import beings.person.Person;
 
 /**
  * @author ZHONG Ming
+ * @author Xu Yijie
  */
 public class H5N1 extends Virus {
 
     public H5N1() {
         this.name = "H5N1";
         this.infectRate = 0.6;
-        this.mortRate = 0.1;
+        this.mortRate = 0.7;
     }
 
     public boolean canInfect(Being infected, Being victim) {

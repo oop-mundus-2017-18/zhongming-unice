@@ -2,6 +2,7 @@ package simulation;
 
 /**
  * @author ZHONG Ming
+ * @author Xu Yijie
  */
 public class Main {
 

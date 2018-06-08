@@ -11,8 +11,11 @@ import javafx.stage.*;
 
 import static beings.State.*;
 
+import java.util.stream.Stream;
+
 /**
  * @author ZHONG Ming
+ * @author Xu Yijie
  */
 
 public class View extends Application {
@@ -64,8 +67,12 @@ public class View extends Application {
                     ((Circle) points[row][col]).setRadius(9.0f);
                     break;
                 }
-                if (model.field.get(row, col).states.contains(Infected))
-                    ((Shape) points[row][col]).setFill(Color.BURLYWOOD);
+                if (model.field.get(row, col).states.contains(Infected)) {
+                    if (model.field.get(row, col).virus.name.equals("H5N1"))
+                        ((Shape) points[row][col]).setFill(Color.BURLYWOOD);
+                    if (model.field.get(row, col).virus.name.equals("H1N1"))
+                        ((Shape) points[row][col]).setFill(Color.MISTYROSE);
+                }
                 if (model.field.get(row, col).states.contains(Dead))
                     ((Shape) points[row][col]).setFill(Color.DARKGRAY);
                 if (model.field.get(row, col).states.contains(Healthy))
@@ -106,7 +113,7 @@ public class View extends Application {
             }
         }
         BorderPane root = new BorderPane();
-        root.setPrefSize(1000,800);
+        root.setPrefSize(1000, 800);
         Label dayLabel = new Label();
         dayLabel.setText("day" + model.day);
         dayLabel.setAlignment(Pos.CENTER);
@@ -118,7 +125,7 @@ public class View extends Application {
         BorderPane.setAlignment(root.getCenter(), Pos.CENTER);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
+        // ajouter un bouton
         Button btn = new Button("next day");
         btn.setOnAction(event -> {
             update();
@@ -134,19 +141,62 @@ public class View extends Application {
         root.setBottom(btn);
         btn.setAlignment(Pos.CENTER);
         BorderPane.setAlignment(root.getBottom(), Pos.CENTER);
-        
-        VBox commentaire = new VBox();
+
+        // ajouter les commentaires
+        HBox commentaire = new HBox();
         commentaire.setAlignment(Pos.CENTER);
-        
-        Label lab1 = new Label("BURLYWOOD : Infected");
-        commentaire.getChildren().add(lab1);
-        Label lab2 = new Label("CADETBLUE : Healthy");
-        commentaire.getChildren().add(lab2);
-        Label lab3 = new Label("DARKGRAY : Dead");
-        commentaire.getChildren().add(lab3);
-        
-        
-        
+        VBox c1 = new VBox();
+        VBox c2 = new VBox();
+
+        Label lab0 = new Label(" : Infected by H1N1");
+        Label lab1 = new Label(" : Infected by H5N1");
+        Label lab2 = new Label(" : Healthy");
+        Label lab3 = new Label(" : Dead");
+        Label lab4 = new Label(" : Sapiens");
+        Label lab5 = new Label(" : Chicken");
+        Label lab6 = new Label(" : Duck");
+        Label lab7 = new Label(" : Pig");
+
+        Rectangle a0 = new Rectangle(15, 15);
+        a0.setFill(Color.MISTYROSE);
+        Rectangle a1 = new Rectangle(15, 15);
+        a1.setFill(Color.BURLYWOOD);
+        Rectangle a2 = new Rectangle(15, 15);
+        a2.setFill(Color.CADETBLUE);
+        Rectangle a3 = new Rectangle(15, 15);
+        a3.setFill(Color.DARKGRAY);
+        Arc a4 = new Arc();
+        a4.setRadiusX(7.0f);
+        a4.setRadiusY(7.0f);
+        a4.setStartAngle(45.0f);
+        a4.setLength(270.0f);
+        a4.setType(ArcType.ROUND);
+        QuadCurve a5 = new QuadCurve();
+        a5.setStartX(7.5f);
+        a5.setStartY(26.25f);
+        a5.setEndX(26.25f);
+        a5.setEndY(26.25f);
+        a5.setControlX(15.0f);
+        a5.setControlY(3.75f);
+        CubicCurve a6 = new CubicCurve();
+        a6.setStartX(2.25f);
+        a6.setStartY(7.5f);
+        a6.setControlX1(15.0f);
+        a6.setControlY1(0.0f);
+        a6.setControlX2(15.0f);
+        a6.setControlY2(41.25f);
+        a6.setEndX(26.25f);
+        a6.setEndY(15.0f);
+        Circle a7 = new Circle();
+        a7.setRadius(6.75f);
+
+        Stream.of(a4, a5, a6, a7).forEach(e -> e.setFill(Color.DARKRED));
+
+        c1.getChildren().addAll(a0, a1, a2, a3, a4, a5, a6, a7);
+        c1.setSpacing(10);
+        c2.getChildren().addAll(lab0, lab1, lab2, lab3, lab4, lab5, lab6, lab7);
+        c2.setSpacing(10);
+        commentaire.getChildren().addAll(c1, c2);
         root.setRight(commentaire);
         BorderPane.setAlignment(root.getRight(), Pos.CENTER);
     }

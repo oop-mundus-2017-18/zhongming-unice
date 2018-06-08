@@ -4,6 +4,7 @@ import beings.Being;
 
 /**
  * @author ZHONG Ming
+ * @author Xu Yijie
  */
 public class Virus {
     // public final static int incubationTime = 2;

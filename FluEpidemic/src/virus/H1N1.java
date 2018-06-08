@@ -6,6 +6,7 @@ import beings.person.Person;
 
 /**
  * @author ZHONG Ming
+ * @author Xu Yijie
  */
 public class H1N1 extends Virus {
 
